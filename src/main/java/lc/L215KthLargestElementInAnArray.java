@@ -3,6 +3,8 @@ package lc;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 /**
@@ -23,6 +25,21 @@ public class L215KthLargestElementInAnArray {
         }
         return heap.remove();
     }
+
+    public int findKthLargest2(int[] nums, int k) {
+        PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
+
+        for (int num : nums) {
+            if (heap.size() < k) {
+                heap.add(num);
+            } else if (heap.peek() < num) {
+                heap.add(num);
+                heap.remove();
+            }
+        }
+        return heap.peek();
+    }
+
 
     @Test
     public void testDeserialization() {
