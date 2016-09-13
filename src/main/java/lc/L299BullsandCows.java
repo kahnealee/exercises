@@ -44,6 +44,5 @@ public class L299BullsandCows {
             }
         }
         return A.toString() + "A" + B.toString() + "B";
-
     }
 }
